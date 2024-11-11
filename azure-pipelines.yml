@@ -36,9 +36,10 @@ steps:
 # publish the artifacts 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: 'D:\a\r1\a'
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'  # Use dynamic path for artifact staging
     includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: 'D:\a\r1\a\$(Build.BuildId).zip'  # Fixed syntax issues here
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'  # Save zip in artifact directory
     replaceExistingArchive: true
+
 
